@@ -10,7 +10,7 @@ public class StartMenu : MonoBehaviour
     void Start() {
         if (PlayerPrefs.GetString("HIGHSCORENAME")!="")
         {
-            highscoreText.text = "High Score Set by " + PlayerPrefs.GetString("HIGHSCORENAME") + " " + PlayerPrefs.GetInt("HIGHSCORE");
+            highscoreText.text = "Yüksek Puan Sahibi " + PlayerPrefs.GetString("HIGHSCORENAME") + " " + PlayerPrefs.GetInt("HIGHSCORE");
         }
       
     }

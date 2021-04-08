@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour
     public int currentLevelIndex = 0;
     void Start()
     {
-        livesText.text = "Lives: " + lives;
-        scoreText.text = "Score: " + score;
-        numberOfBricks = GameObject.FindGameObjectsWithTag("brick").Length; //tugla sayısı
+        livesText.text = "Can: " + lives;
+        scoreText.text = "Skor: " + score;
+        numberOfBricks = GameObject.FindGameObjectsWithTag("brick").Length; 
     }
 
     // Update is called once per frame
@@ -34,24 +34,23 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateLives(int changeInLives) {
-        lives += changeInLives; //can güncelemesi
-        //hiç can kalmadığını kontrol et ve oyunu bitir.
+        lives += changeInLives; 
         if (lives<=0){
             lives = 0;
             GameOver();
         }
-        livesText.text = "Lives: " + lives;
+        livesText.text = "Can: " + lives;
     }
 
     public void UpdateScore(int points)
     {
-        score += points; //score güncelle
-        scoreText.text = "Score: " + score;
+        score += points; 
+        scoreText.text = "Skor: " + score;
     }
     public void UpdateNumberOfBricks() {
         numberOfBricks--;
-        if (numberOfBricks <= 0) { //tugla biterse
-            if (currentLevelIndex >= levels.Length-1) { //level atlama
+        if (numberOfBricks <= 0) { 
+            if (currentLevelIndex >= levels.Length-1) { 
                 GameOver();
             }else {
                 loadLevelPanel.SetActive(true);
@@ -66,22 +65,22 @@ public class GameManager : MonoBehaviour
     void LoadLevel() {
         currentLevelIndex++;
         Instantiate(levels[currentLevelIndex], Vector2.zero, Quaternion.identity);
-        numberOfBricks = GameObject.FindGameObjectsWithTag("brick").Length; //yeni tugla sayısı
+        numberOfBricks = GameObject.FindGameObjectsWithTag("brick").Length; 
         gameOver = false;
         loadLevelPanel.SetActive(false);
     }
     void GameOver(){
         gameOver = true;
-        gameOverPanel.SetActive(true); // game over panelini göster.
+        gameOverPanel.SetActive(true); 
         int highScore = PlayerPrefs.GetInt("HIGHSCORE");
         if (score>highScore){
             PlayerPrefs.SetInt("HIGHSCORE",score);
-            highScoreText.text = "New High Score! " + "\n"+"Enter Your Name Bellow.";
+            highScoreText.text = "Yeni Yüksek Skor! " + "\n"+"Adınızı Giriniz.";
             highScoreInput.gameObject.SetActive(true);
         }
         else
         {
-            highScoreText.text = PlayerPrefs.GetString("HIGHSCORENAME") + "'s" + " High Score was " + highScore + "\n" + "Can you beat it?";
+            highScoreText.text = PlayerPrefs.GetString("HIGHSCORENAME") + "'s" + " Yüksek Puan " + highScore + "\n" + "Geçe bilirmisin?";
         }
     }
 
@@ -89,13 +88,13 @@ public class GameManager : MonoBehaviour
         string highScoreName=highScoreInput.text;
         PlayerPrefs.SetString("HIGHSCORENAME", highScoreName);
         highScoreInput.gameObject.SetActive(false);
-        highScoreText.text ="Congratulations "+ highScoreName+"\n"+"Your New High Score is" + score;
+        highScoreText.text ="Tebrikler "+ highScoreName+"\n"+"Yeni Yüksek Puanınız " + score;
     }
 
     public void PlayAgain() {
-        SceneManager.LoadScene("SampleScene"); //oyun u tekrar başlat
+        SceneManager.LoadScene("SampleScene"); 
     }
     public void Quit() {
-        SceneManager.LoadScene("Start Menu"); //oyun u tekrar başlat
+        SceneManager.LoadScene("Start Menu"); 
     }
 }

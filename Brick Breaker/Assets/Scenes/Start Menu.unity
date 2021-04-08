@@ -517,10 +517,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -528,8 +528,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "How to Play:\n\nLeft and right arrow to move \nSpacebar to launch ball\n\nBreak
-    all the bricks to go to the next level"
+  m_Text: "Nas\u0131l oynan\u0131r:\r\n\r\nHareket etmek i\xE7in sol ve sa\u011F
+    ok tu\u015Flar\u0131n\u0131\r\nTopu f\u0131rlatmak i\xE7in bo\u015Fluk tu\u015Fu\rnu
+    kullan\u0131n\u0131z\n\r\nBir sonraki seviyeye ge\xE7mek i\xE7in t\xFCm tu\u011Flalar\u0131
+    k\u0131r\u0131n."
 --- !u!222 &606966835
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -685,7 +687,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start Game
+  m_Text: "Oyuna Ba\u015Fla"
 --- !u!222 &1084893096
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -763,7 +765,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit Game
+  m_Text: "\xC7\u0131k\u0131\u015F"
 --- !u!222 &1421082317
 CanvasRenderer:
   m_ObjectHideFlags: 0

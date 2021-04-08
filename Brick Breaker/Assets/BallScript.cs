@@ -41,25 +41,25 @@ public class BallScript : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             inPlay = false;
-            gm.UpdateLives(-1); //can güncelleme
+            gm.UpdateLives(-1);
         }
     }
-    void OnCollisionEnter2D(Collision2D other) { //tuglanın kırılması
+    void OnCollisionEnter2D(Collision2D other) { 
         if (other.transform.CompareTag("brick")){
             BrickScript brickScript = other.gameObject.GetComponent<BrickScript>();
             if (brickScript.hitsToBreak>1){
-                brickScript.BreakBrick(); //özel tugla fonksiyonu
+                brickScript.BreakBrick(); 
             }
             else { 
             int randomChance = Random.Range(1, 101);
             if (randomChance < 50){
-                Instantiate(powerup,other.transform.position,other.transform.rotation); //sayı tutarsa extralife icon cıkar
+                Instantiate(powerup,other.transform.position,other.transform.rotation);
             }
-            Transform newExplosion=Instantiate(explossion, other.transform.position, other.transform.rotation); //Efektin cıkması
-            Destroy(newExplosion.gameObject, 2.5f); //efekt clone kaldırma 
-            gm.UpdateScore(brickScript.points); //puan güncelleme
+            Transform newExplosion=Instantiate(explossion, other.transform.position, other.transform.rotation);
+            Destroy(newExplosion.gameObject, 2.5f); 
+            gm.UpdateScore(brickScript.points); 
             gm.UpdateNumberOfBricks();
-            Destroy(other.gameObject); //tuglayı kaybet
+            Destroy(other.gameObject);
             }
 
             audio.Play();
